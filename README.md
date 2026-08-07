@@ -13,7 +13,7 @@ This dataset provides word-level and sentence-level token annotations to help tr
 
 - **Primary Languages:** Roman Urdu, English
 - **Task Type:** Token Classification / Sequence Labeling / Language Identification
-- **File Formats:** CSV / JSON
+- **File Formats:** CSV 
 
 ---
 
