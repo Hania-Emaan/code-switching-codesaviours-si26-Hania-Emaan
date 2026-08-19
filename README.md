@@ -40,11 +40,21 @@ Install the required dependencies:
 pip install transformers torch datasets seqeval
 ---
 
-## 📂 Repository Structure
+from transformers import pipeline
 
-```text
-├── dataset.csv            # Cleaned dataset with token-level annotations
-├── SI26-week6-Hania-Emaan.ipynb    # Python notebook used for data cleaning & encoding
-├──    SI26-week7-Hania-Emaan.ipynb    # Python notebook used for data cleaning & encoding
-└── README.md              # Dataset documentation
+# Load fine-tuned pipeline from Hugging Face Hub
+nlp = pipeline(
+    "token-classification", 
+    model="HaniaEmaan/code-switching-codesaviours-si26-hania", 
+    aggregation_strategy="simple"
+)
+
+# Test sentence
+text = "aaj mera project submission complete ho gaya hai"
+predictions = nlp(text)
+
+for pred in predictions:
+    print(f"Token: {pred['word']} | Label: {pred['entity_group']} | Score: {pred['score']:.4f}")
+
+# # Built by: Hania Emaan | Code Saviours SI-26 | 2026
 
