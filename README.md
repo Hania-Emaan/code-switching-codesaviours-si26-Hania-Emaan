@@ -14,17 +14,6 @@ This dataset provides word-level and sentence-level token annotations to help tr
 - **Primary Languages:** Roman Urdu, English
 - **Task Type:** Token Classification / Sequence Labeling / Language Identification
 - **File Formats:** CSV 
-
----
-
-## 📂 Repository Structure
-
-```text
-├── dataset.csv            # Cleaned dataset with token-level annotations
-├── SI26-week6-Hania-Emaan.ipynb    # Python notebook used for data cleaning & encoding
-├──    SI26-week7-Hania-Emaan.ipynb    # Python notebook used for data cleaning & encoding
-└── README.md              # Dataset documentation
-
 # Code-Switching Token Classification | Identifies Roman Urdu and English words in code-mixed text
 
 Code-mixing between Roman Urdu (Urdu written in the Latin script) and English is dominant across South Asian social media, chat applications, and online forums. Standard monolingual Natural Language Processing (NLP) tools fail to process these mixed sentences because they treat Roman Urdu as misspelled English or unknown words. This project solves that real-world problem by providing a custom token-annotated dataset alongside a fine-tuned multilingual model designed to accurately detect, parse, and classify language switching at the individual word level.
@@ -49,3 +38,13 @@ The model was fine-tuned over 5 epochs and evaluated using token-level precision
 Install the required dependencies:
 ```bash
 pip install transformers torch datasets seqeval
+---
+
+## 📂 Repository Structure
+
+```text
+├── dataset.csv            # Cleaned dataset with token-level annotations
+├── SI26-week6-Hania-Emaan.ipynb    # Python notebook used for data cleaning & encoding
+├──    SI26-week7-Hania-Emaan.ipynb    # Python notebook used for data cleaning & encoding
+└── README.md              # Dataset documentation
+
