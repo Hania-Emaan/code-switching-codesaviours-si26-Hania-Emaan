@@ -56,5 +56,5 @@ predictions = nlp(text)
 for pred in predictions:
     print(f"Token: {pred['word']} | Label: {pred['entity_group']} | Score: {pred['score']:.4f}")
 ---
-# # Built by: Hania Emaan | Code Saviours SI-26 | 2026
+ Built by: Hania Emaan | Code Saviours SI-26 | 2026
 
