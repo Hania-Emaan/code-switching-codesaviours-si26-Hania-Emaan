@@ -18,21 +18,28 @@ This dataset provides word-level and sentence-level token annotations to help tr
 
 Code-mixing between Roman Urdu (Urdu written in the Latin script) and English is dominant across South Asian social media, chat applications, and online forums. Standard monolingual Natural Language Processing (NLP) tools fail to process these mixed sentences because they treat Roman Urdu as misspelled English or unknown words. This project solves that real-world problem by providing a custom token-annotated dataset alongside a fine-tuned multilingual model designed to accurately detect, parse, and classify language switching at the individual word level.
 
-**Live Demo:** [HuggingFace Model Space](https://huggingface.co/HaniaEmaan/code-switching-codesaviours-si26-hania)
+**Live Demo:** [HuggingFace Model Space](https://huggingface.co/spaces/HaniaEmaan/Code-Switching-Demo)
 
 ## How it Works
 The system takes a sentence containing a mix of Roman Urdu and English words as input. It feeds the text into a fine-tuned XLM-RoBERTa transformer model that analyzes the contextual environment surrounding every single token. The model then performs sequence labeling to assign a specific language tag to each word, identifying whether it belongs to Roman Urdu (`URD`), English (`ENG`), or a mixed origin (`MIX`).
 
-## Results
-The model was fine-tuned over 5 epochs and evaluated using token-level precision, recall, and F1-scores via the `seqeval` framework:
+## Evaluation & Model Performance
 
-| Tag / Label | Description | Precision | Recall | F1-Score |
-| :--- | :--- | :--- | :--- | :--- |
-| **`ENG`** | English Tokens | 0.99 | 0.99 | **0.99** |
-| **`URD`** | Roman Urdu Tokens | 0.91 | 0.89 | **0.90** |
-| **`MIX`** | Hybrid/Mixed Tokens | 0.00 | 0.00 | **0.00** |
-| **Overall** | **Micro Average** | **0.98** | **0.97** | **0.97** |
+The model was evaluated using `seqeval` on a code-switched token classification test set.
 
+| Tag / Label | Description | Precision | Recall | F1-Score | Support |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **`ENG`** | English Tokens | 0.93 | 0.94 | **0.93** | 83 |
+| **`MIX`** | Hybrid/Mixed Tokens | 1.00 | 0.62 | **0.76** | 13 |
+| **`URD`** | Roman Urdu Tokens | 0.62 | 0.62 | **0.62** | 13 |
+| **Micro Avg** | Overall Token Level | 0.90 | 0.86 | **0.88** | 109 |
+| **Macro Avg** | Class Unweighted Avg | 0.85 | 0.72 | **0.77** | 109 |
+| **Weighted Avg** | Class Weighted Avg | **0.90** | **0.86** | **0.88** | **109** |
+
+### Key Summary
+* **Token-Level Accuracy:** **90.83%**
+* **Validation Loss:** **0.2721**
+* **Base Architecture:** `XLM-RoBERTa-base` fine-tuned for 12 epochs.
 ## How to Run Locally
 
 Install the required dependencies:
