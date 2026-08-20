@@ -20,6 +20,8 @@ Code-mixing between Roman Urdu (Urdu written in the Latin script) and English is
 
 **Live Demo:** [HuggingFace Model Space](https://huggingface.co/spaces/HaniaEmaan/Code-Switching-Demo)
 
+**Demo video:** [Video](https://www.loom.com/share/000cbb93c88c418dadfadc105ad46960)
+
 ## How it Works
 The system takes a sentence containing a mix of Roman Urdu and English words as input. It feeds the text into a fine-tuned XLM-RoBERTa transformer model that analyzes the contextual environment surrounding every single token. The model then performs sequence labeling to assign a specific language tag to each word, identifying whether it belongs to Roman Urdu (`URD`), English (`ENG`), or a mixed origin (`MIX`).
 
